@@ -1,4 +1,4 @@
-const Sigin = () => {
+const SignIn = () => {
     return (
         <div className="flex flex-col gap-2 w-[300px] items-center">
             <h1 className="text-slate-200 text-2xl font-bold ">LOGIN</h1>
@@ -15,4 +15,4 @@ const Sigin = () => {
     )
 }
 
-export default Sigin
+export default SignIn
