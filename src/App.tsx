@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './App.css'
-import Home from './pages/home'
 import { useEffect, useState } from 'react'
+import SessionsPage from './pages/sessions'
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
@@ -25,7 +25,7 @@ function App() {
   }
   return (
     <>
-      <Home />
+      <SessionsPage />
       {showInstallBtn && (
         <button onClick={handleInstallClick}>
           Instalar app
