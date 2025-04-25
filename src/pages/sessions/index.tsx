@@ -1,13 +1,13 @@
 const SessionsPage = () => {
     return (
-        <div className="flex flex-col justify-center items-center w-[300px]">
-            <div className="flex flex-col items-start justify-center w-[300px] h-[180px] bg-neutral-900 gap-1 rounded-lg">
+        <div className="flex flex-col justify-center items-center w-[350px]">
+            <div className="flex flex-col items-start justify-center w-[350px] h-[180px] bg-neutral-900 gap-1 rounded-lg">
                 <h1 className="ml-4 font-bold text-2xl"> TREINO DE PERNAS</h1>
                 <p className="ml-4 font-bold text-zinc-400">45 min - 8 exercícios </p>
                 <button className="m-auto w-[90%] h-10 bg-orange-600 rounded-lg font-bold my-3"> INICIAR </button>
             </div>
 
-            <div className="flex flex-col justify-center items-center W-[300px] mt-5">
+            <div className="flex flex-col justify-center items-center W-[350px] mt-5">
                 <div className="flex justify-between items-baseline w-[260px]">
                     <h1 className="font-medium text-xl">Intervalo</h1>
                     <h2 className="font-medium text-sm text-zinc-400">5 min</h2>
