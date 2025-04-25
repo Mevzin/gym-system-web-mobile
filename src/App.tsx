@@ -2,6 +2,7 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import Profile from './pages/profile'
+import Navbar from './components/navbar'
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
@@ -31,6 +32,7 @@ function App() {
           Instalar app
         </button>
       )}
+      <Navbar />
     </>
   )
 }
