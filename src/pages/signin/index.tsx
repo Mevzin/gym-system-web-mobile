@@ -1,3 +1,5 @@
+import { NavLink } from "react-router"
+
 const SignIn = () => {
     return (
         <div className="flex flex-col gap-2 w-[300px] items-center">
@@ -9,7 +11,7 @@ const SignIn = () => {
 
             <div className="mt-5">
                 <p>Não possui conta?</p>
-                <a className="text-orange-500">Cadastre-se</a>
+                <NavLink to={"/signup"} className="text-orange-500">Cadastre-se</NavLink>
             </div>
         </div>
     )
