@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './App.css'
 import { useEffect, useState } from 'react'
-import Profile from './pages/profile'
 import Navbar from './components/navbar'
+import RoutesApp from './routes'
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
@@ -26,7 +26,7 @@ function App() {
   }
   return (
     <>
-      <Profile />
+      <RoutesApp />
       {showInstallBtn && (
         <button onClick={handleInstallClick}>
           Instalar app
