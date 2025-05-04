@@ -4,6 +4,7 @@ import SignIn from "../pages/signin"
 import SignUp from "../pages/signup"
 import SessionsPage from "../pages/sessions"
 import Profile from "../pages/profile"
+import NotFound from "../pages/notfound"
 
 const RoutesApp = () => {
     return (
@@ -13,6 +14,7 @@ const RoutesApp = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/sessions" element={<SessionsPage />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     )
 }
