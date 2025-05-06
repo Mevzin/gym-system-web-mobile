@@ -11,15 +11,15 @@ const Navbar = () => {
                     <FaHome />
                     <span className="text-sm">Início</span>
                 </NavLink>
-                <NavLink to="#" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
+                <NavLink to="/sessions" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
                     <GiWeightLiftingUp />
                     <span className="text-sm">Treino</span>
                 </NavLink>
-                <NavLink to="#" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
+                <NavLink to="/interval" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
                     <FaClockRotateLeft />
                     <span className="text-sm">Intervalo</span>
                 </NavLink>
-                <NavLink to="#" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
+                <NavLink to="/profile" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
                     <FaRegUser />
                     <span className="text-sm">Perfil</span>
                 </NavLink>

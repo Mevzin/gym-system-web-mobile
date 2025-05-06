@@ -8,13 +8,13 @@ const SessionsPage = () => {
             </div>
 
             <div className="flex flex-col justify-center items-center W-[350px] mt-5">
-                <div className="flex justify-between items-baseline w-[260px]">
+                <div className="flex justify-between items-baseline w-[300px]">
                     <h1 className="font-medium text-xl">Intervalo</h1>
                     <h2 className="font-medium text-sm text-zinc-400">5 min</h2>
                 </div>
 
                 {/* CARDS */}
-                <div className="flex flex-col w-[260px] gap-4 mt-3">
+                <div className="flex flex-col w-[300px] gap-4 mt-3">
                     <div className="flex">
                         <div className="w-[70px] h-[70px] bg-white rounded-lg"></div>
                         <div className="flex flex-col items-start justify-center ml-4">
