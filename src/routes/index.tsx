@@ -5,6 +5,7 @@ import SignUp from "../pages/signup"
 import SessionsPage from "../pages/sessions"
 import Profile from "../pages/profile"
 import NotFound from "../pages/notfound"
+import Interval from "../pages/interval"
 
 const RoutesApp = () => {
     return (
@@ -14,6 +15,7 @@ const RoutesApp = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/sessions" element={<SessionsPage />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/interval" element={<Interval />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )
