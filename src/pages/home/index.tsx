@@ -11,7 +11,7 @@ const Home = () => {
                 </div>
                 <h1 className="ml-4 font-bold">TREINO DE PERNAS</h1>
                 <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
-                <NavLink to={"/sessions"} className="m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3"> INICIAR</NavLink>
+                <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
             </div>
             <div className="w-[350px] gap-2 pt-2 bg-zinc-900 rounded-md flex flex-col items-start">
                 <h1 className="ml-3 font-bold">PERFIL</h1>
@@ -19,7 +19,7 @@ const Home = () => {
                     <div className="flex items-center ml-3">
                         <div className="w-14 h-14 rounded-full bg-gray-50"></div>
                         <div className="flex flex-col items-start ml-3">
-                            <h1 className="font-bold">Taylor Sans</h1>
+                            <h1 className="font-bold">Thiago Torres</h1>
                             <p className="font-light text-sm text-gray-400">Idade: 30 - Peso: 98kg</p>
                         </div>
                     </div>
