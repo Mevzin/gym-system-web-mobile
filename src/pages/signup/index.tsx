@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { NavLink } from "react-router"
 import { apiBase } from "../../services/api";
+import { Bounce, toast } from "react-toastify";
 
 interface IUserData {
     name: string;
@@ -19,30 +20,111 @@ const SignUp = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const onSubmit: SubmitHandler<IUserData> = async (data) => {
+        if (!data.name || !data.username || !data.age || !data.email || !data.password || !data.confirmPassword || !data.weight) {
+            toast.error('Preencha todos os campos!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
+            return
+        }
+
         if (data.password === "") {
-            alert("Preencha a senha")
+            toast.error('Preencha a senha!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
         if (data.confirmPassword === "") {
-            alert("Preencha a confirmação de senha")
+            // alert("Preencha a confirmação de senha")
+            toast.error('Preencha a confirmação de senha!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
         if (data.password.length < 6) {
-            alert("Senha deve ter no mínimo 6 caracteres")
+            // alert("Senha deve ter no mínimo 6 caracteres")
+            toast.error('Senha deve ter no mínimo 6 caracteres!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
         if (data.confirmPassword.length < 6) {
-            alert("Senha deve ter no mínimo 6 caracteres")
+            // alert("Senha deve ter no mínimo 6 caracteres")
+            toast.error('Senha deve ter no mínimo 6 caracteres!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
         if (data.password.length > 100) {
-            alert("Senha deve ter no máximo 100 caracteres")
+            // alert("Senha deve ter no máximo 100 caracteres")
+            toast.error('Senha deve ter no máximo 100 caracteres!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
         if (data.password !== data.confirmPassword) {
-            alert("Senhas não conferem")
+            // alert("Senhas não conferem")
+            toast.error('Senhas não conferem!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             return
         }
+
         try {
             setIsLoading(true);
             await apiBase.post('/user/register', data)

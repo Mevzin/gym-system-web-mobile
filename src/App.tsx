@@ -3,6 +3,9 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import Navbar from './components/navbar'
 import RoutesApp from './routes'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
+
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
@@ -27,6 +30,7 @@ function App() {
   return (
     <>
       <RoutesApp />
+      <ToastContainer />
       {showInstallBtn && (
         <button onClick={handleInstallClick}>
           Instalar app
