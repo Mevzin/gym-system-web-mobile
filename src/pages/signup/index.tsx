@@ -128,11 +128,32 @@ const SignUp = () => {
         try {
             setIsLoading(true);
             await apiBase.post('/user/register', data)
+            toast.success('Registro realizado com sucesso!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
         } catch (error) {
             console.log(error);
-
+            toast.error('Já existe um usuário com esse email ou nome usuário!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
         } finally {
-            console.log("Fim req");
+
             setIsLoading(false);
         }
     }
@@ -171,12 +192,13 @@ const SignUp = () => {
                 />
                 <input
                     placeholder="Idade"
-                    type="text"
+                    type="number"
                     className="h-10  w-[300px] pl-3"
                     {...register("age")}
                 />
                 <input
                     placeholder="Peso"
+                    type="number"
                     className="h-10   w-[300px] pl-3"
                     {...register("weight")}
                 />
