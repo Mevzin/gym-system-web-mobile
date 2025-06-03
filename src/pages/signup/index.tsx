@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NavLink } from "react-router"
+import { NavLink, redirect } from "react-router"
 import { apiBase } from "../../services/api";
 import { Bounce, toast } from "react-toastify";
 
@@ -139,6 +139,7 @@ const SignUp = () => {
                 theme: "dark",
                 transition: Bounce,
             });
+            return redirect("/login")
         } catch (error) {
             console.log(error);
             toast.error('Já existe um usuário com esse email ou nome usuário!', {
@@ -153,7 +154,6 @@ const SignUp = () => {
                 transition: Bounce,
             });
         } finally {
-
             setIsLoading(false);
         }
     }
