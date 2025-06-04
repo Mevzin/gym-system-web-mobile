@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NavLink, redirect } from "react-router"
+import { NavLink, redirect, useNavigate } from "react-router"
 import { apiBase } from "../../services/api";
 import { Bounce, toast } from "react-toastify";
 
@@ -18,6 +18,7 @@ const SignUp = () => {
 
     const { register, handleSubmit } = useForm<IUserData>();
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate()
 
     const onSubmit: SubmitHandler<IUserData> = async (data) => {
         if (!data.name || !data.username || !data.age || !data.email || !data.password || !data.confirmPassword || !data.weight) {
@@ -134,7 +135,7 @@ const SignUp = () => {
                 theme: "dark",
                 transition: Bounce,
             });
-            return redirect("/login")
+            navigate("/signin")
         } catch (error) {
             console.log(error);
             toast.error('Já existe um usuário com esse email ou nome usuário!', {
