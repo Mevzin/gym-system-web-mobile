@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { NavLink, redirect, useNavigate } from "react-router"
 import { Bounce, toast } from "react-toastify";
 import { apiBase } from "../../services/api";
+import useAuth from "../../hooks/useAuth";
 
 interface IUserData {
     email: string,
@@ -12,6 +13,7 @@ interface IUserData {
 const SignIn = () => {
     const { register, handleSubmit } = useForm<IUserData>();
     const [isLoading, setIsLoading] = useState(false);
+    const { login } = useAuth()
 
     const navigate = useNavigate()
 
@@ -19,7 +21,10 @@ const SignIn = () => {
     const onSubmit: SubmitHandler<IUserData> = async (data) => {
         try {
             setIsLoading(true);
-            await apiBase.post('/user/login', data)
+            await apiBase.post('/user/login', data).then(response => {
+                login(response.data.user, response.data.token)
+                navigate('/home')
+            })
             toast.success('Sessão iniciada com sucesso!', {
                 position: "top-right",
                 autoClose: 5000,

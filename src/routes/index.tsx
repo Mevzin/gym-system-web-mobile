@@ -6,18 +6,30 @@ import SessionsPage from "../pages/sessions"
 import Profile from "../pages/profile"
 import NotFound from "../pages/notfound"
 import Interval from "../pages/interval"
+import useAuth from "../hooks/useAuth"
 
 const RoutesApp = () => {
+
+    const { user } = useAuth()
+
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/sessions" element={<SessionsPage />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/interval" element={<Interval />} />
-            <Route path="*" element={<NotFound />} />
-        </Routes>
+        <>
+            {
+                user ?
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/sessions" element={<SessionsPage />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/interval" element={<Interval />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes> :
+                    <Routes>
+                        <Route path="/signin" element={<SignIn />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="*" element={<SignIn />} />
+                    </Routes>
+            }
+        </>
     )
 }
 

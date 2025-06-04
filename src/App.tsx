@@ -5,6 +5,7 @@ import Navbar from './components/navbar'
 import RoutesApp from './routes'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
@@ -28,7 +29,7 @@ function App() {
     }
   }
   return (
-    <>
+    <AuthProvider>
       <RoutesApp />
       <ToastContainer />
       {showInstallBtn && (
@@ -37,7 +38,7 @@ function App() {
         </button>
       )}
       <Navbar />
-    </>
+    </AuthProvider>
   )
 }
 
