@@ -50,7 +50,6 @@ const SignUp = () => {
             return
         }
         if (data.confirmPassword === "") {
-            // alert("Preencha a confirmação de senha")
             toast.error('Preencha a confirmação de senha!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -65,7 +64,6 @@ const SignUp = () => {
             return
         }
         if (data.password.length < 6) {
-            // alert("Senha deve ter no mínimo 6 caracteres")
             toast.error('Senha deve ter no mínimo 6 caracteres!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -80,7 +78,6 @@ const SignUp = () => {
             return
         }
         if (data.confirmPassword.length < 6) {
-            // alert("Senha deve ter no mínimo 6 caracteres")
             toast.error('Senha deve ter no mínimo 6 caracteres!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -95,7 +92,6 @@ const SignUp = () => {
             return
         }
         if (data.password.length > 100) {
-            // alert("Senha deve ter no máximo 100 caracteres")
             toast.error('Senha deve ter no máximo 100 caracteres!', {
                 position: "top-right",
                 autoClose: 5000,
@@ -110,7 +106,6 @@ const SignUp = () => {
             return
         }
         if (data.password !== data.confirmPassword) {
-            // alert("Senhas não conferem")
             toast.error('Senhas não conferem!', {
                 position: "top-right",
                 autoClose: 5000,
