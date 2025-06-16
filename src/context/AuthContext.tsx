@@ -27,16 +27,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [token, setToken] = useState<string | null>(null);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem('authUser');
-        const storedToken = localStorage.getItem('authToken');
+        const storedUser = localStorage.getItem('@GymSystem:authUser');
+        const storedToken = localStorage.getItem('@GymSystem:authToken');
 
         if (storedUser && storedToken) {
             try {
                 setUser(JSON.parse(storedUser));
                 setToken(storedToken);
             } catch {
-                localStorage.removeItem('authUser');
-                localStorage.removeItem('authToken');
+                localStorage.removeItem('@GymSystem:authUser');
+                localStorage.removeItem('@GymSystem:authToken');
             }
         }
     }, []);
@@ -44,15 +44,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const login = (userData: User, token: string) => {
         setUser(userData);
         setToken(token);
-        localStorage.setItem('authUser', JSON.stringify(userData));
-        localStorage.setItem('authToken', token);
+        localStorage.setItem('@GymSystem:authUser', JSON.stringify(userData));
+        localStorage.setItem('@GymSystem:authToken', token);
     };
 
     const logout = () => {
         setUser(null);
         setToken(null);
-        localStorage.removeItem('authUser');
-        localStorage.removeItem('authToken');
+        localStorage.removeItem('@GymSystem:authUser');
+        localStorage.removeItem('@GymSystem:authToken');
     };
 
     return (

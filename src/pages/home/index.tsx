@@ -1,7 +1,34 @@
 import { NavLink } from "react-router"
 import BannerImage from "../../assets/banner.png"
+import useAuth from "../../hooks/useAuth"
+import { useMemo, useState } from "react"
+import { apiBase } from "../../services/api"
+
+interface IUserProfile {
+    name?: string
+    email?: string
+    age?: number
+    weight?: number
+    gender?: string
+    goal?: string
+    interval?: number
+}
 
 const Home = () => {
+
+    const { user, token } = useAuth()
+
+    const [userProfileData, setUserProfileData] = useState<IUserProfile>()
+
+    useMemo(async () => {
+        const response = await apiBase.get(`/user/getUserByEmail/${user?.email}`, {
+            headers: { "Authorization": `Bearer ${token}` },
+        })
+        const data = response.data
+        setUserProfileData(data)
+        console.log(data)
+    }, [])
+
     return (
         <div className="flex flex-col items-start gap-2">
             <h1 className="text-2xl font-bold">Treino de hoje</h1>
@@ -9,7 +36,7 @@ const Home = () => {
                 <div className="w-full h-[145px]">
                     <img src={BannerImage} />
                 </div>
-                <h1 className="ml-4 font-bold">TREINO DE PERNAS</h1>
+                <h1 className="ml-4 font-bold">TREINO PERSONALIZADO</h1>
                 <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
                 <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
             </div>
@@ -19,8 +46,8 @@ const Home = () => {
                     <div className="flex items-center ml-3">
                         <div className="w-14 h-14 rounded-full bg-gray-50"></div>
                         <div className="flex flex-col items-start ml-3">
-                            <h1 className="font-bold">Thiago Torres</h1>
-                            <p className="font-light text-sm text-gray-400">Idade: 30 - Peso: 98kg</p>
+                            <h1 className="font-bold">{user?.name}</h1>
+                            <p className="font-light text-sm text-gray-400">Idade: 30 - Peso: {userProfileData?.weight}kg</p>
                         </div>
                     </div>
                     <div className="flex flex-row justify-evenly w-[350px] pb-3">
@@ -29,12 +56,12 @@ const Home = () => {
                             <p className="font-bold text-[11px] text-gray-300">TREINOS</p>
                         </div>
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
-                            <h1>3h 20m</h1>
-                            <p className="font-bold text-[11px] text-gray-300">DURAÇÃO</p>
+                            <h1>{userProfileData?.interval}</h1>
+                            <p className="font-bold text-[11px] text-gray-300">INTERVALO</p>
                         </div>
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
-                            <h1>720</h1>
-                            <p className="font-bold text-[11px] text-gray-300">CALORIES</p>
+                            <h1>{userProfileData?.weight}</h1>
+                            <p className="font-bold text-[11px] text-gray-300">KG</p>
                         </div>
                     </div>
                 </div>
