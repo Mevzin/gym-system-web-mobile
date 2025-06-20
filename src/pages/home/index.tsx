@@ -26,8 +26,7 @@ const Home = () => {
         })
         const data = response.data
         setUserProfileData(data)
-        console.log(data)
-    }, [])
+    }, [user, token])
 
     return (
         <div className="flex flex-col items-start gap-2">

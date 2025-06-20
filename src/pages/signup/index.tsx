@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NavLink, redirect, useNavigate } from "react-router"
+import { NavLink, useNavigate } from "react-router"
 import { apiBase } from "../../services/api";
 import { Bounce, toast } from "react-toastify";
 
