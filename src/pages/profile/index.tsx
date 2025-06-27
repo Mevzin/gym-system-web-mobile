@@ -1,7 +1,10 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { GiWeight } from "react-icons/gi";
 import { LiaRulerVerticalSolid } from "react-icons/lia";
+import { useAuthContext } from "../../context/AuthContext";
 const Profile = () => {
+
+    const { logout } = useAuthContext()
     return (
         <div className="flex flex-col w-[350px] items-center gap-3">
             <div className="flex w-32 h-32 rounded-full bg-gray-600 items-center justify-center">
@@ -43,6 +46,9 @@ const Profile = () => {
                         <h2 className="font-semibold text-lg">Peso</h2>
                     </div>
                     <h2 className="font-bold text-xl">20 kg</h2>
+                </div>
+                <div>
+                    <button className="w-32 h-10 bg-red-600 font-semibold rounded-lg mt-6" onClick={() => logout()}> Sair da conta</button>
                 </div>
             </div>
         </div>
