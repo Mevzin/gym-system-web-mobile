@@ -2,9 +2,38 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { GiWeight } from "react-icons/gi";
 import { LiaRulerVerticalSolid } from "react-icons/lia";
 import { useAuthContext } from "../../context/AuthContext";
+import { useMemo, useState } from "react";
+import { apiBase } from "../../services/api";
+
+interface IUserProfile {
+    name?: string
+    email?: string
+    age?: number
+    weight?: number
+    height?: number
+    gender?: string
+    goal?: string
+    interval?: number
+    fileId?: string
+}
+
 const Profile = () => {
 
-    const { logout } = useAuthContext()
+    const { logout, user, token } = useAuthContext()
+
+    const [userProfile, setUserProfile] = useState<IUserProfile | null>(null)
+
+    useMemo(async () => {
+        const response = await apiBase.post(`/user/getUserById`,
+            {
+                id: user?.id
+            }, {
+            headers: { "authorization": `Bearer ${token}` },
+        })
+        const data = response.data
+        setUserProfile(data)
+    }, [])
+
     return (
         <div className="flex flex-col w-[350px] items-center gap-3">
             <div className="flex w-32 h-32 rounded-full bg-gray-600 items-center justify-center">
@@ -12,8 +41,8 @@ const Profile = () => {
             </div>
 
             <div>
-                <h1 className="text-2xl font-bold">Thiago Torres</h1>
-                <h3 className="text-sm text-gray-400">thiago@dev.com</h3>
+                <h1 className="text-2xl font-bold">{userProfile?.name}</h1>
+                <h3 className="text-sm text-gray-400">{userProfile?.email}</h3>
             </div>
 
             <div className="flex w-full justify-evenly">
@@ -31,21 +60,21 @@ const Profile = () => {
                         <FaRegCalendarAlt size={30} />
                         <h2 className="font-semibold text-lg">Idade</h2>
                     </div>
-                    <h2 className="font-bold text-xl">20 anos</h2>
+                    <h2 className="font-bold text-xl">{userProfile?.age} anos</h2>
                 </div>
                 <div className="flex justify-between h-14 bg-zinc-800 items-center p-6 border-b-[0.1px] rounded-t-lg">
                     <div className="flex items-center gap-2 ">
                         <LiaRulerVerticalSolid size={30} />
                         <h2 className="font-semibold text-lg">Altura</h2>
                     </div>
-                    <h2 className="font-bold text-xl">170 cm</h2>
+                    <h2 className="font-bold text-xl">{userProfile?.height} cm</h2>
                 </div>
                 <div className="flex justify-between h-14 bg-zinc-800 items-center p-6 rounded-b-lg">
                     <div className="flex items-center gap-2 ">
                         <GiWeight size={30} />
                         <h2 className="font-semibold text-lg">Peso</h2>
                     </div>
-                    <h2 className="font-bold text-xl">20 kg</h2>
+                    <h2 className="font-bold text-xl">{userProfile?.weight} kg</h2>
                 </div>
                 <div>
                     <button className="w-32 h-10 bg-red-600 font-semibold rounded-lg mt-6" onClick={() => logout()}> Sair da conta</button>

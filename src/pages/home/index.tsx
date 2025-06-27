@@ -12,6 +12,7 @@ interface IUserProfile {
     gender?: string
     goal?: string
     interval?: number
+    fileId?: string
 }
 
 const Home = () => {
@@ -21,7 +22,9 @@ const Home = () => {
     const [userProfileData, setUserProfileData] = useState<IUserProfile>()
 
     useMemo(async () => {
-        const response = await apiBase.get(`/user/getUserByEmail/${user?.email}`, {
+        const response = await apiBase.post(`/user/getUserByEmail`, {
+            email: user?.email
+        }, {
             headers: { "Authorization": `Bearer ${token}` },
         })
         const data = response.data
@@ -31,14 +34,22 @@ const Home = () => {
     return (
         <div className="flex flex-col items-start gap-2">
             <h1 className="text-2xl font-bold">Treino de hoje</h1>
-            <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
-                <div className="w-full h-[145px]">
-                    <img src={BannerImage} />
-                </div>
-                <h1 className="ml-4 font-bold">TREINO PERSONALIZADO</h1>
-                <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
-                <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
-            </div>
+            {userProfileData?.fileId ?
+                <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
+                    <div className="w-full h-[145px]">
+                        <img src={BannerImage} />
+                    </div>
+                    <h1 className="ml-4 font-bold">TREINO PERSONALIZADO</h1>
+                    <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
+                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
+                </div> :
+                <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
+                    <div className="w-full h-[145px]">
+                        <img src={BannerImage} />
+                    </div>
+                    <h1 className="ml-4 font-bold">Não foi encontrado nenhum treino</h1>
+                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> CRIAR UM NOVO TREINO</NavLink>
+                </div>}
             <div className="w-[350px] gap-2 pt-2 bg-zinc-900 rounded-md flex flex-col items-start">
                 <h1 className="ml-3 font-bold">PERFIL</h1>
                 <div className="flex flex-col items-start w-[350px] gap-2">
