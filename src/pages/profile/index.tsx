@@ -4,6 +4,7 @@ import { LiaRulerVerticalSolid } from "react-icons/lia";
 import { useAuthContext } from "../../context/AuthContext";
 import { useMemo, useState } from "react";
 import { apiBase } from "../../services/api";
+import { Dialog } from "../../components/dialog";
 
 interface IUserProfile {
     name?: string
@@ -19,8 +20,8 @@ interface IUserProfile {
 
 const Profile = () => {
 
+    const [open, setOpen] = useState(false);
     const { logout, user, token } = useAuthContext()
-
     const [userProfile, setUserProfile] = useState<IUserProfile | null>(null)
 
     useMemo(async () => {
@@ -77,9 +78,35 @@ const Profile = () => {
                     <h2 className="font-bold text-xl">{userProfile?.weight} kg</h2>
                 </div>
                 <div>
-                    <button className="w-32 h-10 bg-red-600 font-semibold rounded-lg mt-6" onClick={() => logout()}> Sair da conta</button>
+                    <button className="w-32 h-10 bg-red-600 font-semibold rounded-lg mt-6" onClick={() => setOpen(true)}> Sair da conta</button>
                 </div>
             </div>
+            <Dialog
+                open={open}
+                onClose={() => setOpen(false)}
+                title="Confirmar ação"
+                footer={
+                    <>
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="px-4 py-2 rounded-xl bg-gray-600 hover:bg-gray-400"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            onClick={() => {
+                                logout();
+                                setOpen(false);
+                            }}
+                            className="px-4 py-2 rounded-xl bg-green-600 text-white hover:bg-green-700"
+                        >
+                            Confirmar
+                        </button>
+                    </>
+                }
+            >
+                <p>Tem certeza que deseja sair da conta?</p>
+            </Dialog>
         </div>
     )
 }
