@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import { AuthProvider } from './context/AuthContext'
 
+
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
@@ -18,6 +19,9 @@ function App() {
       setShowInstallBtn(true)
     })
   }, [])
+
+  console.log("teste");
+
 
   const handleInstallClick = () => {
     if (deferredPrompt) {
