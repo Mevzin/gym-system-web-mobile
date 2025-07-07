@@ -79,6 +79,7 @@ const SignIn = () => {
                         placeholder="Email"
                         {...register("email")}
                         className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-orange-500 focus:outline-none"
+                        autoComplete="email"
                     />
 
                     <input
