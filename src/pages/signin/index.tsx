@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router"
 import { Bounce, toast } from "react-toastify";
 import { apiBase } from "../../services/api";
 import useAuth from "../../hooks/useAuth";
+import Loader from "../../components/loader";
 
 interface IUserData {
     email: string,
@@ -61,7 +62,15 @@ const SignIn = () => {
                 <input placeholder="Email" className="h-10 placeholder:pl-3  w-[300px]" {...register("email")} />
                 <input placeholder="Senha" type="password" className="h-10 placeholder:pl-3 w-[300px]" {...register("password")} />
                 {isLoading ?
-                    (<button className="bg-gray-500 w-[250px] h-10 mt-3 font-bold text-xl" type="submit" disabled>Aguarde</button>) :
+                    (<button
+                        className="bg-gray-500 w-[250px] h-10 mt-3 font-bold text-xl flex justify-center items-center m-auto gap-2"
+                        type="submit"
+                        disabled>
+                        Carregando
+                        <div
+                            className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin">
+                        </div>
+                    </button>) :
                     (<button className="bg-orange-500 w-[250px] h-10 mt-3 font-bold text-xl hover: cursor-pointer" type="submit">Login</button>)
                 }
             </form>

@@ -30,8 +30,6 @@ function App() {
           Authorization: `Bearer ${token}`
         }
       })
-      console.log("teste");
-
       if (status.data.status === 401) {
         logout()
       }
@@ -39,9 +37,6 @@ function App() {
 
     checkAuth()
   }, [token])
-
-  console.log("teste");
-
 
   const handleInstallClick = () => {
     if (deferredPrompt) {
