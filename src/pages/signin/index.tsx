@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from "react-router"
 import { Bounce, toast } from "react-toastify";
 import { apiBase } from "../../services/api";
 import useAuth from "../../hooks/useAuth";
-import Loader from "../../components/loader";
 
 interface IUserData {
     email: string,
