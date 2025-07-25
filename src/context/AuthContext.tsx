@@ -8,9 +8,11 @@ import {
 } from 'react';
 
 type User = {
-    id: string;
-    name: string;
-    email: string;
+    id?: string;
+    name?: string;
+    email?: string;
+    role?: [];
+    fileId?: string;
 };
 
 type AuthContextType = {
@@ -18,6 +20,7 @@ type AuthContextType = {
     token: string | null;
     login: (userData: User, token: string) => void;
     logout: () => void;
+    addUserFileId: (userData: User) => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -55,8 +58,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         localStorage.removeItem('@GymSystem:authToken');
     };
 
+    const addUserFileId = (userData: User) => {
+        setUser(userData)
+        localStorage.removeItem('@GymSystem:authUser');
+        localStorage.setItem('@GymSystem:authUser', JSON.stringify(userData));
+    }
+
     return (
-        <AuthContext.Provider value={{ user, token, login, logout }}>
+        <AuthContext.Provider value={{ user, token, login, logout, addUserFileId }}>
             {children}
         </AuthContext.Provider>
     );

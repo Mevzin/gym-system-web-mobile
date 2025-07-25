@@ -1,7 +1,7 @@
 import { useAuthContext } from '../context/AuthContext';
 
 const useAuth = () => {
-    const { user, token, login, logout } = useAuthContext();
+    const { user, token, login, logout, addUserFileId } = useAuthContext();
 
     return {
         isLogged: !!user && !!token,
@@ -9,6 +9,7 @@ const useAuth = () => {
         token,
         login,
         logout,
+        addUserFileId
     };
 };
 

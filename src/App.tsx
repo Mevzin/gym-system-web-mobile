@@ -7,12 +7,15 @@ import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import useAuth from './hooks/useAuth'
 import { apiBase } from './services/api'
+import { useNavigate } from 'react-router'
 
 
 function App() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
   const [showInstallBtn, setShowInstallBtn] = useState(false)
   const { token, logout } = useAuth()
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -31,6 +34,7 @@ function App() {
         }
       })
       if (status.data.status === 401) {
+        navigate("/signin")
         logout()
       }
     }

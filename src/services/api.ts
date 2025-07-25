@@ -9,5 +9,5 @@ export const apiUser = axios.create({
 })
 
 export const apiFile = axios.create({
-    baseURL: `${import.meta.env.VITE_API_URL}/user`
+    baseURL: `${import.meta.env.VITE_API_URL}/files`
 })

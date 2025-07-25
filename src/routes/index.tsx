@@ -11,9 +11,6 @@ const RoutesApp = () => {
 
     const { user } = useAuth()
 
-
-
-
     return (
         <>
             {

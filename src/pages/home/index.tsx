@@ -17,18 +17,23 @@ interface IUserProfile {
 
 const Home = () => {
 
-    const { user, token } = useAuth()
+    const { user, token, logout } = useAuth()
 
     const [userProfileData, setUserProfileData] = useState<IUserProfile>()
 
     useMemo(async () => {
-        const response = await apiBase.post(`/user/getUserByEmail`, {
-            email: user?.email
-        }, {
-            headers: { "Authorization": `Bearer ${token}` },
-        })
-        const data = response.data
-        setUserProfileData(data)
+        try {
+            const response = await apiBase.post(`/user/getUserByEmail`, {
+                email: user?.email
+            }, {
+                headers: { "Authorization": `Bearer ${token}` },
+            })
+            const data = response.data
+            setUserProfileData(data)
+        } catch (e) {
+            console.error(e)
+            logout()
+        }
     }, [user, token])
 
     return (
