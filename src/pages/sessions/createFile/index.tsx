@@ -205,7 +205,7 @@ const CreateFile = () => {
                         : "bg-green-600 hover:bg-green-700"
                         }`}
                 >
-                    {saving ? "Salvando..." : "Salvar Treino"}
+                    {saving ? "Salvand..." : "Salvar Treino"}
                 </button>
             </div>
         );
