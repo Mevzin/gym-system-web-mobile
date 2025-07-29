@@ -20,6 +20,20 @@ const SignIn = () => {
 
     const onSubmit: SubmitHandler<IUserData> = async (data) => {
         try {
+            if (data.email === "" || data.password === "") {
+                toast.error('Preencha todos os campos!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                });
+                return
+            }
             setIsLoading(true);
             await apiBase.post('/user/login', data).then(response => {
                 login(response.data.user, response.data.token)
@@ -56,20 +70,54 @@ const SignIn = () => {
     }
     return (
         <div className="flex flex-col gap-2 w-[300px] items-center">
-            <h1 className="text-slate-200 text-2xl font-bold ">LOGIN</h1>
-            <form className="flex flex-col gap-2 w-[300px] items-center" onSubmit={handleSubmit(onSubmit)}>
-                <input placeholder="Email" className="h-10 placeholder:pl-3  w-[300px]" {...register("email")} />
-                <input placeholder="Senha" type="password" className="h-10 placeholder:pl-3 w-[300px]" {...register("password")} />
-                {isLoading ?
-                    (<button className="bg-gray-500 w-[250px] h-10 mt-3 font-bold text-xl" type="submit" disabled>Aguarde</button>) :
-                    (<button className="bg-orange-500 w-[250px] h-10 mt-3 font-bold text-xl hover: cursor-pointer" type="submit">Login</button>)
-                }
-            </form>
-            <p className="mt-3">Esqueceu sua senha?</p>
+            <div className="bg-[#1f1f1f] p-8 rounded-2xl shadow-lg w-full max-w-sm space-y-6">
+                <h1 className="text-white text-2xl font-bold text-center">Bem-vindo de volta</h1>
 
-            <div className="mt-5">
-                <p>Não possui conta?</p>
-                <NavLink to={"/signup"} className="text-orange-500">Cadastre-se</NavLink>
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        {...register("email")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-primary focus:outline-none"
+                        autoComplete="email"
+                    />
+
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        {...register("password")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    {isLoading ? (
+                        <button
+                            type="submit"
+                            disabled
+                            className="bg-gray-500 w-full h-11 mt-2 font-bold text-white rounded-md flex items-center justify-center gap-2 cursor-not-allowed"
+                        >
+                            Carregando
+                            <div className="w-5 h-5 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="bg-primary hover:bg-secondary transition-all duration-200 w-full h-11 mt-2 font-semibold text-white rounded-md"
+                        >
+                            Login
+                        </button>
+                    )}
+                </form>
+
+                <p className="text-sm text-center text-white/80 hover:underline cursor-pointer">
+                    Esqueceu sua senha?
+                </p>
+
+                <div className="text-center text-sm text-white">
+                    <p>Não possui conta?</p>
+                    <NavLink to={"/signup"} className="text-primary hover:underline">
+                        Cadastre-se
+                    </NavLink>
+                </div>
             </div>
         </div>
     )

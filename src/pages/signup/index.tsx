@@ -156,59 +156,84 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col gap-2 w-[300px] items-center">
-            <h1 className="text-slate-200 text-2xl font-bold ">CADASTRO</h1>
-            <form className="flex flex-col gap-2 w-[300px] items-center" onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    placeholder="Usuario"
-                    className="h-10   w-[300px] pl-3"
-                    {...register("username")}
-                />
-                <input
-                    placeholder="Senha"
-                    type="password"
-                    className="h-10  w-[300px] pl-3 "
-                    {...register("password")}
-                />
-                <input
-                    placeholder="Confirmar senha"
-                    type="password"
-                    className="h-10  w-[300px] pl-3 "
-                    {...register("confirmPassword")}
-                />
-                <input
-                    placeholder="Email"
-                    type="email"
-                    className="h-10  w-[300px] pl-3"
-                    {...register("email")}
-                />
-                <input
-                    placeholder="Nome"
-                    className="h-10   w-[300px] pl-3"
-                    {...register("name")}
-                />
-                <input
-                    placeholder="Idade"
-                    type="number"
-                    className="h-10  w-[300px] pl-3"
-                    {...register("age")}
-                />
-                <input
-                    placeholder="Peso"
-                    type="number"
-                    className="h-10   w-[300px] pl-3"
-                    {...register("weight")}
-                />
+            <div className="bg-[#1f1f1f] p-8 rounded-2xl shadow-lg w-full max-w-sm space-y-6">
+                <h1 className="text-white text-2xl font-bold text-center">Criar Conta</h1>
 
-                {isLoading ?
-                    (<button className="bg-gray-500 w-[250px] h-10 mt-3 font-bold text-xl" type="submit" disabled>Aguarde</button>) :
-                    (<button className="bg-orange-500 w-[250px] h-10 mt-3 font-bold text-xl" type="submit">Cadastrar</button>)
-                }
-            </form>
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        placeholder="Usuário"
+                        {...register("username")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
 
+                    <input
+                        placeholder="Senha"
+                        type="password"
+                        {...register("password")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
 
-            <div className="mt-5">
-                <p>Já possui conta?</p>
-                <NavLink to={"/signin"} className="text-orange-500">Efetuar Login</NavLink>
+                    <input
+                        placeholder="Confirmar senha"
+                        type="password"
+                        {...register("confirmPassword")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    <input
+                        placeholder="Email"
+                        type="email"
+                        autoComplete="email"
+                        {...register("email")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    <input
+                        placeholder="Nome"
+                        autoComplete="name"
+                        {...register("name")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    <input
+                        placeholder="Idade"
+                        type="number"
+                        {...register("age")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    <input
+                        placeholder="Peso"
+                        type="number"
+                        {...register("weight")}
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] text-white placeholder-gray-400 border border-transparent focus:border-primary focus:outline-none"
+                    />
+
+                    {isLoading ? (
+                        <button
+                            type="submit"
+                            disabled
+                            className="bg-gray-500 w-full h-11 mt-2 font-bold text-white rounded-md flex items-center justify-center gap-2 cursor-not-allowed"
+                        >
+                            Aguarde...
+                            <div className="w-5 h-5 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="bg-primary hover:bg-secondary transition-all duration-200 w-full h-11 mt-2 font-semibold text-white rounded-md"
+                        >
+                            Cadastrar
+                        </button>
+                    )}
+                </form>
+
+                <div className="text-center text-sm text-white mt-4">
+                    <p>Já possui conta?</p>
+                    <NavLink to="/signin" className="text-secondary hover:underline">
+                        Efetuar Login
+                    </NavLink>
+                </div>
             </div>
         </div>
     )

@@ -7,7 +7,6 @@ import Profile from "../pages/profile"
 import NotFound from "../pages/notfound"
 import Interval from "../pages/interval"
 import useAuth from "../hooks/useAuth"
-
 const RoutesApp = () => {
 
     const { user } = useAuth()
