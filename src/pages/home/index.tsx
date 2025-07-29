@@ -75,7 +75,7 @@ const Home = () => {
                             <p className="font-bold text-[11px] text-gray-300">INTERVALO</p>
                         </div>
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
-                            <h1>{userProfileData?.weight} KG</h1>
+                            <h1>{userProfileData?.weight} kg</h1>
                             <p className="font-bold text-[11px] text-gray-300">PESO</p>
                         </div>
                     </div>

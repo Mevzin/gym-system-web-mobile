@@ -3,8 +3,13 @@ import { useState } from "react";
 import { apiFile } from "../../../services/api";
 import useAuth from "../../../hooks/useAuth";
 import exercisesMapped from "../../../services/data.json";
+import { Bounce, toast } from "react-toastify";
 
-const CreateFile = () => {
+type Props = {
+    aoAlterar: (status: boolean) => void
+}
+
+const CreateFile = ({ aoAlterar }: Props) => {
     const [loading, setLoading] = useState(false);
     const { token, user, addUserFileId } = useAuth();
     const [userFile, setUserFile] = useState<any>(null);
@@ -89,13 +94,34 @@ const CreateFile = () => {
                 formValues,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-            alert("Training updated successfully!");
+            toast.success('Treino salvo com sucesso!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
         } catch (err) {
             console.error("Error updating training:", err);
-            alert("Error saving training.");
+            toast.error('Erro ao salvar o treino!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
         } finally {
             setSaving(false);
         }
+        aoAlterar(true)
     };
 
     if (user?.fileId === null && !userFile) {
@@ -104,7 +130,7 @@ const CreateFile = () => {
                 <h1 className="font-bold text-2xl">
                     Este usuário não possui nenhum treinamento registrado no momento!
                 </h1>
-                <p>Click the button below to start the registration!</p>
+                <p>Clique no botão abaixo para começar a crias o seu treino!</p>
                 {loading ? (
                     <button
                         disabled
@@ -127,7 +153,7 @@ const CreateFile = () => {
 
     if (userFile) {
         return (
-            <div className="p-4 space-y-6 bg-zinc-700 mb-16 shadow-xl w-[300px]">
+            <div className="p-4 space-y-6 mb-16 shadow-xl w-[300px]">
                 {Object.entries(exercisesMapped).map(([group, exercises]) => {
                     if (!Array.isArray(exercises)) {
                         return (
@@ -205,7 +231,7 @@ const CreateFile = () => {
                         : "bg-green-600 hover:bg-green-700"
                         }`}
                 >
-                    {saving ? "Salvand..." : "Salvar Treino"}
+                    {saving ? "Salvando..." : "Salvar Treino"}
                 </button>
             </div>
         );
