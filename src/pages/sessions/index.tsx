@@ -7,6 +7,7 @@ const SessionsPage = () => {
 
     const { user, token } = useAuth()
     const [fileList, setFileList] = useState()
+    console.log(fileList)
 
     useEffect(() => {
 
