@@ -137,7 +137,7 @@ const SignUp = () => {
             });
             navigate("/signin")
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error('Já existe um usuário com esse email ou nome usuário!', {
                 position: "top-right",
                 autoClose: 5000,
