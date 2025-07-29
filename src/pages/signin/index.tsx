@@ -78,7 +78,7 @@ const SignIn = () => {
                         type="email"
                         placeholder="Email"
                         {...register("email")}
-                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-orange-500 focus:outline-none"
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-primary focus:outline-none"
                         autoComplete="email"
                     />
 
@@ -86,7 +86,7 @@ const SignIn = () => {
                         type="password"
                         placeholder="Senha"
                         {...register("password")}
-                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-orange-500 focus:outline-none"
+                        className="h-11 w-full px-4 rounded-md bg-[#2c2c2c] placeholder-gray-400 text-white border border-transparent focus:border-primary focus:outline-none"
                     />
 
                     {isLoading ? (
@@ -96,12 +96,12 @@ const SignIn = () => {
                             className="bg-gray-500 w-full h-11 mt-2 font-bold text-white rounded-md flex items-center justify-center gap-2 cursor-not-allowed"
                         >
                             Carregando
-                            <div className="w-5 h-5 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+                            <div className="w-5 h-5 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
                         </button>
                     ) : (
                         <button
                             type="submit"
-                            className="bg-orange-500 hover:bg-orange-600 transition-all duration-200 w-full h-11 mt-2 font-semibold text-white rounded-md"
+                            className="bg-primary hover:bg-secondary transition-all duration-200 w-full h-11 mt-2 font-semibold text-white rounded-md"
                         >
                             Login
                         </button>
@@ -114,7 +114,7 @@ const SignIn = () => {
 
                 <div className="text-center text-sm text-white">
                     <p>Não possui conta?</p>
-                    <NavLink to={"/signup"} className="text-orange-500 hover:underline">
+                    <NavLink to={"/signup"} className="text-primary hover:underline">
                         Cadastre-se
                     </NavLink>
                 </div>

@@ -102,7 +102,7 @@ const CreateFile = () => {
         return (
             <div className="flex flex-col gap-3">
                 <h1 className="font-bold text-2xl">
-                    This user currently has no training registered!
+                    Este usuário não possui nenhum treinamento registrado no momento!
                 </h1>
                 <p>Click the button below to start the registration!</p>
                 {loading ? (
@@ -110,15 +110,15 @@ const CreateFile = () => {
                         disabled
                         className="flex gap-3 m-auto w-[90%] h-8 bg-gray-500 rounded-lg font-bold my-3 items-center justify-center"
                     >
-                        Generating
-                        <div className="w-5 h-5 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                        Gerando treino
+                        <div className="w-5 h-5 border-4 border-primary border-t-transparent rounded-full animate-spin" />
                     </button>
                 ) : (
                     <button
                         onClick={handleCreateFile}
-                        className="flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"
+                        className="flex m-auto w-[90%] h-8 bg-primary rounded-lg font-bold my-3 items-center justify-center"
                     >
-                        Generate training
+                        Gerar treino!
                     </button>
                 )}
             </div>

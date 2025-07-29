@@ -46,14 +46,14 @@ const Home = () => {
                     </div>
                     <h1 className="ml-4 font-bold">TREINO PERSONALIZADO</h1>
                     <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
-                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
+                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-primary rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
                 </div> :
                 <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
                     <div className="w-full h-[145px]">
                         <img src={BannerImage} />
                     </div>
                     <h1 className="ml-4 font-bold">Não foi encontrado nenhum treino</h1>
-                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-orange-600 rounded-lg font-bold my-3 items-center justify-center"> CRIAR UM NOVO TREINO</NavLink>
+                    <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-primary rounded-lg font-bold my-3 items-center justify-center"> CRIAR UM NOVO TREINO</NavLink>
                 </div>}
             <div className="w-[350px] gap-2 pt-2 bg-zinc-900 rounded-md flex flex-col items-start">
                 <h1 className="ml-3 font-bold">PERFIL</h1>
@@ -75,8 +75,8 @@ const Home = () => {
                             <p className="font-bold text-[11px] text-gray-300">INTERVALO</p>
                         </div>
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
-                            <p className="font-bold text-[11px] text-gray-300">KG</p>
-                            <h1>{userProfileData?.weight}</h1>
+                            <h1>{userProfileData?.weight} KG</h1>
+                            <p className="font-bold text-[11px] text-gray-300">PESO</p>
                         </div>
                     </div>
                 </div>

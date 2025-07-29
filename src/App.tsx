@@ -18,6 +18,13 @@ function App() {
 
 
   useEffect(() => {
+    const root = document.documentElement; root.style.setProperty('--color-primary', import.meta.env.VITE_APP_PRIMARY_COLOR || '#1e40af'); // azul padrão
+    root.style.setProperty('--color-secondary', import.meta.env.VITE_APP_SECONDARY_COLOR || '#64748b'); // cinza
+    root.style.setProperty('--color-background', import.meta.env.VITE_APP_BACKGROUND_COLOR || '#ffffff');
+    root.style.setProperty('--color-text', import.meta.env.VITE_APP_TEXT_COLOR || '#000000');
+
+    document.title = import.meta.env.VITE_APP_TITLE || "Development";
+
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault()
       setDeferredPrompt(e)

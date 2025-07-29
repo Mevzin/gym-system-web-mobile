@@ -27,6 +27,12 @@ const SessionsPage = () => {
     }, [])
 
 
+    if (user?.fileId == null) {
+        return (
+            <CreateFile />
+        )
+    }
+
     return (
         <div className="flex flex-col justify-center items-center w-[350px]">
             {/* <div className="flex flex-col items-start justify-center w-[350px] h-[180px] bg-neutral-900 gap-1 rounded-lg">
@@ -108,7 +114,7 @@ const SessionsPage = () => {
                 </div>
             </div> */}
 
-            <CreateFile />
+
         </div>
     )
 }
