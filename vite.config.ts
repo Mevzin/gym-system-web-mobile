@@ -10,11 +10,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'MV Gym',
-        short_name: 'MVGym',
-        description: 'Um app React como PWA!',
+        name: 'R3 Fitness Center',
+        short_name: 'R3 Fitness',
+        description: 'Um app React com  PWA!',
         theme_color: '#000000',
-        background_color: '#ffffff',
+        background_color: '#3c3f42',
         display: 'standalone',
         start_url: '/',
         icons: [
