@@ -30,6 +30,7 @@ const Home = () => {
             })
             const data = response.data
             setUserProfileData(data)
+            console.log(data)
         } catch (e) {
             console.error(e)
             logout()
