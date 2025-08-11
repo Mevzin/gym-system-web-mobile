@@ -15,11 +15,13 @@ const SessionsPage = () => {
     const [open, setOpen] = useState(false);
     const [fileList, setFileList] = useState()
     const [isReady, setIsReady] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [selectInterval, setSelectedInterval] = useState(4)
 
     const handleChildrenMessage = (status: boolean) => {
         setIsReady(status)
     }
+
     useEffect(() => {
         async function getFileById() {
             try {
@@ -28,6 +30,7 @@ const SessionsPage = () => {
                 })
                 setFileList(response.data.file)
                 setIsReady(true)
+                setIsLoading(false)
             } catch (error) {
                 setIsReady(false)
                 throw new Error(error as string);
@@ -37,8 +40,14 @@ const SessionsPage = () => {
         if (user?.fileId != null) getFileById()
     }, [isReady])
 
-
-    if (user?.fileId == null || isReady == false) {
+    if (isLoading == true) {
+        return (
+            <div className="flex flex-col justify-center items-center gap-2">
+                <h1 className="font-bold text-2xl">Carregando ...</h1>
+                <div className="w-5 h-5 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        )
+    } else if (user?.fileId == null || isReady == false) {
         return (
             <CreateFile aoAlterar={handleChildrenMessage} />
         )
