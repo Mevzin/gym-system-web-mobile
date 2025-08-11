@@ -49,7 +49,7 @@ const SessionsPage = () => {
                 <div className="flex flex-col justify-center items-center W-[350px] mt-5">
                     <div className="flex justify-between items-baseline w-[320px]">
                         <h1 className="font-medium text-xl">Intervalo</h1>
-                        <h2 className="font-medium text-sm text-zinc-400">5 min</h2>
+                        <h2 className="font-medium text-sm text-zinc-400">{user?.interval} min</h2>
                     </div>
 
                     <div className="flex flex-col w-[320px] gap-4 mt-3 pb-10">

@@ -13,6 +13,7 @@ type User = {
     email?: string;
     role?: [];
     fileId?: string;
+    interval: number;
 };
 
 type AuthContextType = {
