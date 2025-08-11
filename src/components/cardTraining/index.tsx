@@ -27,7 +27,7 @@ const CardTraining = ({ trainingName, repeats }: ICardProps) => {
     }
 
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-between border-y-[0.5px] rounded-md" onClick={() => handleCheckButton()}>
             <div className="flex">
                 <div className="flex items-center content-center">
                     <GiWeightLiftingUp height={50} width={50} size={40} />
@@ -37,9 +37,9 @@ const CardTraining = ({ trainingName, repeats }: ICardProps) => {
                     <p className="text-base text-zinc-400">{repeats}</p>
                 </div>
             </div>
-            <button className="flex w-max items-center" onClick={() => handleCheckButton()}>
+            <div className="flex w-max items-center" >
                 <CiCircleCheck width={30} height={30} size={30} color={colorStatus} fontWeight={30} />
-            </button>
+            </div>
         </div>
     )
 }

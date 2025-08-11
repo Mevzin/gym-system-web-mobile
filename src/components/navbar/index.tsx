@@ -1,5 +1,4 @@
 import { FaHome, FaRegUser } from "react-icons/fa"
-import { FaClockRotateLeft } from "react-icons/fa6"
 import { GiWeightLiftingUp } from "react-icons/gi"
 import { NavLink } from "react-router"
 import useAuth from "../../hooks/useAuth"
@@ -19,10 +18,6 @@ const Navbar = () => {
                     <NavLink to="/sessions" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
                         <GiWeightLiftingUp />
                         <span className="text-sm">Treino</span>
-                    </NavLink>
-                    <NavLink to="/interval" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
-                        <FaClockRotateLeft />
-                        <span className="text-sm">Intervalo</span>
                     </NavLink>
                     <NavLink to="/profile" className="flex flex-col items-center text-gray-400 hover:text-orange-500">
                         <FaRegUser />
