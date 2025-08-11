@@ -13,7 +13,7 @@ const SessionsPage = () => {
     const [fileList, setFileList] = useState()
     const [isReady, setIsReady] = useState(false)
 
-    const handleMensagemDoFilho = (status: boolean) => {
+    const handleChildrenMessage = (status: boolean) => {
         setIsReady(status)
     }
     useEffect(() => {
@@ -36,7 +36,7 @@ const SessionsPage = () => {
 
     if (user?.fileId == null || isReady == false) {
         return (
-            <CreateFile aoAlterar={handleMensagemDoFilho} />
+            <CreateFile aoAlterar={handleChildrenMessage} />
         )
     } else {
         return (
@@ -58,21 +58,23 @@ const SessionsPage = () => {
                                 return (
                                     <div
                                         key={group}
-                                        className="bg-zinc-900 flex flex-col items-center rounded-md border shadow-xl p-2"
+                                        className="bg-zinc-900 flex flex-col rounded-md border shadow-xl p-2"
                                     >
                                         <h2 className="text-xl font-bold text-orange-600 mb-2">
                                             {group}
                                         </h2>
                                         {Object.entries(exercises).map(([subGroup, list]) => (
                                             <div key={subGroup} className="mb-4">
-                                                <h3 className="text-md font-semibold text-gray-300">
+                                                <h3 className="mb-3 text-md font-semibold text-gray-300">
                                                     {subGroup}
                                                 </h3>
                                                 <ul className="">
                                                     {list.map(({ label, value }) => {
                                                         if (fileList?.[value] != "0x0" && fileList?.[value] != "0x 0") {
                                                             return (
-                                                                <CardTraining key={value} repeats={fileList?.[value] || ""} trainingName={label} />
+                                                                <div className="mb-2">
+                                                                    <CardTraining key={value} repeats={fileList?.[value] || ""} trainingName={label} />
+                                                                </div>
                                                             )
                                                         }
                                                     })}
@@ -91,7 +93,7 @@ const SessionsPage = () => {
                                     <h2 className="text-xl font-bold text-orange-600 mb-2">
                                         {group}
                                     </h2>
-                                    <ul className="space-y-1">
+                                    <ul className="space-y-3">
                                         {exercises.map(({ label, value }) => {
                                             if (fileList?.[value] != "0x0" && fileList?.[value] != "0x 0") {
                                                 return (
