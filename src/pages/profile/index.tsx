@@ -1,10 +1,11 @@
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt, FaUserCircle } from "react-icons/fa";
 import { GiWeight } from "react-icons/gi";
 import { LiaRulerVerticalSolid } from "react-icons/lia";
 import { useAuthContext } from "../../context/AuthContext";
 import { useMemo, useState } from "react";
 import { apiBase } from "../../services/api";
 import { Dialog } from "../../components/dialog";
+import { NavLink } from "react-router";
 
 
 interface IUserProfile {
@@ -34,13 +35,14 @@ const Profile = () => {
         })
         const data = response.data
         setUserProfile(data)
+        console.log(data);
     }, [])
+
+
 
     return (
         <div className="flex flex-col w-[350px] items-center gap-3">
-            <div className="flex w-32 h-32 rounded-full bg-gray-600 items-center justify-center">
-                <h1 className="text-7xl font-bold">TH</h1>
-            </div>
+            <FaUserCircle size={100} color="#475569" />
 
             <div>
                 <h1 className="text-2xl font-bold">{userProfile?.name}</h1>
@@ -49,7 +51,7 @@ const Profile = () => {
 
             <div className="flex w-full justify-evenly">
                 <button className="w-32 h-10 bg-slate-600 font-semibold rounded-lg">Editar Perfil</button>
-                <button className="w-32 h-10 bg-slate-600 font-semibold rounded-lg">Editar Treino</button>
+                <NavLink to="/editFile" className="w-32 h-10 bg-slate-600 font-semibold rounded-lg flex justify-center items-center">Editar Treino</NavLink>
             </div>
 
             <div className="flex w-full items-start mt-6">
