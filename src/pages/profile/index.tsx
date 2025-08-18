@@ -35,10 +35,7 @@ const Profile = () => {
         })
         const data = response.data
         setUserProfile(data)
-        console.log(data);
     }, [])
-
-
 
     return (
         <div className="flex flex-col w-[350px] items-center gap-3">

@@ -96,8 +96,6 @@ const EditFile = () => {
     };
 
     const handleSave = async () => {
-        console.log(userFile._id);
-
         setSaving(true);
         try {
             await apiFile.put(
@@ -182,8 +180,6 @@ const EditFile = () => {
                                         </h3>
                                         <ul className="space-y-1 mt-1">
                                             {list.map(({ label, value }) => {
-                                                console.log(label, value, formValues[value]);
-
                                                 return (<li
                                                     key={value}
                                                     className="flex justify-between border-b pb-1"
