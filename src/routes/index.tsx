@@ -7,6 +7,7 @@ import Profile from "../pages/profile"
 import NotFound from "../pages/notfound"
 import Interval from "../pages/interval"
 import useAuth from "../hooks/useAuth"
+import EditFile from "../pages/editFile"
 const RoutesApp = () => {
 
     const { user } = useAuth()
@@ -20,6 +21,7 @@ const RoutesApp = () => {
                         <Route path="/sessions" element={<SessionsPage />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/interval" element={<Interval />} />
+                        <Route path="/editFile" element={<EditFile />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes> :
                     <Routes>
