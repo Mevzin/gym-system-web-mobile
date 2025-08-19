@@ -3,6 +3,7 @@ import BannerImage from "../../assets/banner.png"
 import useAuth from "../../hooks/useAuth"
 import { useMemo, useState } from "react"
 import { apiBase } from "../../services/api"
+import { ImFire } from "react-icons/im"
 
 interface IUserProfile {
     name?: string
@@ -77,6 +78,13 @@ const Home = () => {
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
                             <h1>{userProfileData?.weight} kg</h1>
                             <p className="font-bold text-[11px] text-gray-300">PESO</p>
+                        </div>
+                        <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
+                            <div className="flex items-center gap-1">
+                                <h1>{userProfileData?.weight}</h1>
+                                <ImFire />
+                            </div>
+                            <p className="font-bold text-[11px] text-gray-300">STREAK</p>
                         </div>
                     </div>
                 </div>
