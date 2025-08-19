@@ -235,7 +235,7 @@ const EditFile = () => {
                 <button
                     onClick={handleSave}
                     disabled={saving}
-                    className={`mt-4 w-full h-10 rounded-lg font-bold text-white ${saving
+                    className={`mt-4 w-full h-12 rounded-lg font-bold text-white ${saving
                         ? "bg-gray-500"
                         : "bg-green-900 hover:bg-green-700"
                         }`}
@@ -245,7 +245,7 @@ const EditFile = () => {
                 <button
                     onClick={() => navigate(-1)}
                     disabled={saving}
-                    className={`mt-4 w-full h-10 rounded-lg font-bold text-white bg-red-900 hover:bg-red-700`}
+                    className={`mt-4 w-full h-12 rounded-lg font-bold text-white bg-red-900 hover:bg-red-700`}
                 >
                     Voltar
                 </button>
