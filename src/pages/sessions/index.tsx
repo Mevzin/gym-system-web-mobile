@@ -37,7 +37,13 @@ const SessionsPage = () => {
             }
         }
 
-        if (user?.fileId != null) getFileById()
+        if (user?.fileId != null) {
+            getFileById()
+            return
+        }
+
+        setIsLoading(false)
+
     }, [isReady])
 
     if (isLoading == true) {

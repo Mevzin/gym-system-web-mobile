@@ -49,7 +49,7 @@ const CreateFile = ({ aoAlterar }: Props) => {
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
-            const fileSaved = response.data.file;
+            const fileSaved = response.data.fileSaved;
             const filled = fillEmptyFields(fileSaved);
 
             setUserFile(fileSaved);
