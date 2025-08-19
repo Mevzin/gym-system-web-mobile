@@ -40,7 +40,7 @@ const Home = () => {
         <div className="flex flex-col items-start gap-2">
             <h1 className="text-2xl font-bold">Treino de hoje</h1>
             {userProfileData?.fileId ?
-                <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
+                <div className="w-[400px] bg-zinc-900 rounded-md flex flex-col items-start">
                     <div className="w-full h-[145px]">
                         <img src={BannerImage} />
                     </div>
@@ -48,16 +48,16 @@ const Home = () => {
                     <p className="ml-4 font-light text-sm text-gray-400">45 min - 8 exercicios</p>
                     <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-primary rounded-lg font-bold my-3 items-center justify-center"> INICIAR</NavLink>
                 </div> :
-                <div className="w-[350px] bg-zinc-900 rounded-md flex flex-col items-start">
+                <div className="w-[400px] bg-zinc-900 rounded-md flex flex-col items-start">
                     <div className="w-full h-[145px]">
                         <img src={BannerImage} />
                     </div>
                     <h1 className="ml-4 font-bold">Não foi encontrado nenhum treino</h1>
                     <NavLink to={"/sessions"} className=" flex m-auto w-[90%] h-8 bg-primary rounded-lg font-bold my-3 items-center justify-center"> CRIAR UM NOVO TREINO</NavLink>
                 </div>}
-            <div className="w-[350px] gap-2 pt-2 bg-zinc-900 rounded-md flex flex-col items-start">
+            <div className="w-[400px] gap-2 pt-2 bg-zinc-900 rounded-md flex flex-col items-start">
                 <h1 className="ml-3 font-bold">PERFIL</h1>
-                <div className="flex flex-col items-start w-[350px] gap-2">
+                <div className="flex flex-col items-start w-[400px] gap-2">
                     <div className="flex items-center ml-3">
                         <div className="w-14 h-14 rounded-full bg-gray-50"></div>
                         <div className="flex flex-col items-start ml-3">
@@ -65,7 +65,7 @@ const Home = () => {
                             <p className="font-light text-sm text-gray-400">Idade: 30 - Peso: {userProfileData?.weight}kg</p>
                         </div>
                     </div>
-                    <div className="flex flex-row justify-evenly w-[350px] pb-3">
+                    <div className="flex flex-row justify-evenly w-[400px] pb-3">
                         <div className="flex flex-col items-center m-auto align-middlealign-middle justify-center bg-zinc-700 h-[50px] w-[90px] rounded-md">
                             <h1>7</h1>
                             <p className="font-bold text-[11px] text-gray-300">TREINOS</p>

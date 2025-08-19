@@ -162,7 +162,7 @@ const EditFile = () => {
 
     if (userFile) {
         return (
-            <div className="p-4 space-y-6 mb-16 shadow-xl w-[300px]">
+            <div className="p-4 space-y-6 mb-16 shadow-xl w-[400px]">
                 {Object.entries(exercisesMapped).map(([group, exercises]) => {
                     if (!Array.isArray(exercises)) {
                         return (
@@ -174,7 +174,7 @@ const EditFile = () => {
                                     {group}
                                 </h2>
                                 {Object.entries(exercises).map(([subGroup, list]) => (
-                                    <div key={subGroup} className="mb-4">
+                                    <div key={subGroup} className="mb-4 w-[95%]">
                                         <h3 className="text-md font-semibold text-gray-300">
                                             {subGroup}
                                         </h3>
