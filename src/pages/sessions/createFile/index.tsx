@@ -153,7 +153,7 @@ const CreateFile = ({ aoAlterar }: Props) => {
 
     if (userFile) {
         return (
-            <div className="p-4 space-y-6 mb-16 shadow-xl w-[300px]">
+            <div className="p-4 space-y-6 mb-16 shadow-xl w-[400px]">
                 {Object.entries(exercisesMapped).map(([group, exercises]) => {
                     if (!Array.isArray(exercises)) {
                         return (
