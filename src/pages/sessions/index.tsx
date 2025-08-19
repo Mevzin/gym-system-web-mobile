@@ -53,19 +53,19 @@ const SessionsPage = () => {
         )
     } else {
         return (
-            <div className="flex flex-col justify-center items-center w-[350px]">
-                <div className="flex flex-col items-start justify-center w-[350px] h-[130px] bg-neutral-900 gap-1 rounded-lg">
+            <div className="flex flex-col justify-center items-center w-[400px]">
+                <div className="flex flex-col items-start justify-center w-[400px] h-[130px] bg-neutral-900 gap-1 rounded-lg">
                     <h1 className="ml-4 font-bold text-2xl"> TREINO PERSONALIZADO</h1>
                     <p className="ml-4 font-bold text-zinc-400">45 min - 1h e 30min </p>
                 </div>
 
-                <div className="flex flex-col justify-center items-center W-[350px] mt-5">
+                <div className="flex flex-col justify-center items-center W-[400px] mt-5">
                     <div className="flex justify-between items-baseline w-[320px]">
                         <h1 className="font-medium text-xl">Intervalo</h1>
                         <button onClick={() => setOpen(true)} className="flex items-center font-medium text-sm text-zinc-400">{selectInterval} min <FaCaretDown /></button>
                     </div>
 
-                    <div className="flex flex-col w-[320px] gap-4 mt-3 pb-10">
+                    <div className="flex flex-col w-[400px] gap-4 mt-3 pb-10">
                         {Object.entries(exercisesMapped).map(([group, exercises]) => {
                             if (!Array.isArray(exercises)) {
                                 return (
